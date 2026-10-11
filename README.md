@@ -10,6 +10,17 @@ ONE-TIME VAULT is an experimental, offline desktop application that encrypts fil
 
 > **Status: v0.1.12 bilingual public preview.** Linux Mint has been used for hands-on testing. Windows and macOS Python launchers exist, but these platforms are not yet verified in real-world use. This is not an audited cryptographic product.
 
+## Download v0.1.12
+
+**[GitHub Releases — ONE-TIME VAULT downloads](https://github.com/Masato-Nasu/ONE-TIME-VAULT/releases)**
+
+The downloadable application package is `ONE-TIME-VAULT-DESKTOP-v0.1.12.zip` (Python desktop app, launcher scripts, installation helper and tests). **The release download becomes available after this ZIP has been uploaded to the repository.** The included GitHub Actions workflow then publishes it under Releases automatically.
+
+The ZIP file has SHA-256:
+`b2b6f43fe18b60693bd2b5b3c70bdf42b2fac838479c29651228ffa542d620bc`.
+
+There is no runnable web app: GitHub Pages is an information website. ONE-TIME VAULT runs locally on your computer.
+
 ## Application screenshots
 
 **English interface · v0.1.12 (Linux Mint)**
