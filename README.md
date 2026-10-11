@@ -10,11 +10,17 @@ ONE-TIME VAULT is an experimental, offline desktop application that encrypts fil
 
 > **Status: v0.1.12 bilingual public preview.** Linux Mint has been used for hands-on testing. Windows and macOS Python launchers exist, but these platforms are not yet verified in real-world use. This is not an audited cryptographic product.
 
-## Application screenshot
+## Application screenshots
 
-![ONE-TIME VAULT v0.1.11 running on Linux Mint](docs/images/one-time-vault-v0.1.11.png)
+**English interface · v0.1.12 (Linux Mint)**
 
-*ONE-TIME VAULT v0.1.11 — the offline encryption interface running on Linux Mint. Interface language shown: Japanese.*
+![ONE-TIME VAULT v0.1.12 English interface showing Encrypt, Decrypt, file/folder selection and language switch](docs/images/one-time-vault-v0.1.12-en.png)
+
+**Japanese interface · v0.1.11 (Linux Mint)**
+
+![ONE-TIME VAULT v0.1.11 Japanese interface](docs/images/one-time-vault-v0.1.11.png)
+
+*Actual desktop screenshots. Version 0.1.12 supports switching between Japanese and English.*
 
 
 ## Japanese / English interface (v0.1.12)
