@@ -1,0 +1,33 @@
+name: Publish ONE-TIME VAULT v0.1.12
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dist/ONE-TIME-VAULT-DESKTOP-v0.1.12.zip"
+      - ".github/workflows/publish-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Verify packaged application
+        shell: bash
+        run: |
+          test -s "dist/ONE-TIME-VAULT-DESKTOP-v0.1.12.zip" || { echo "v0.1.12 ZIP not yet uploaded"; exit 1; }
+          unzip -t "dist/ONE-TIME-VAULT-DESKTOP-v0.1.12.zip" | tail -n 1
+      - name: Publish GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view "v0.1.12" >/dev/null 2>&1; then
+            gh release create "v0.1.12" --title "ONE-TIME VAULT v0.1.12 — Japanese / English" --notes-file RELEASE_NOTES.md --prerelease --target "${{ github.sha }}"
+          fi
+          gh release upload "v0.1.12" "dist/ONE-TIME-VAULT-DESKTOP-v0.1.12.zip" --clobber
