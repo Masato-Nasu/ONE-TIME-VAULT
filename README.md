@@ -10,6 +10,12 @@ ONE-TIME VAULT is an experimental, offline desktop application that encrypts fil
 
 > **Status: v0.1.11 public preview.** Linux Mint has been used for hands-on testing. Windows and macOS Python launchers exist, but these platforms are not yet verified in real-world use. This is not an audited cryptographic product.
 
+## Application screenshot
+
+![ONE-TIME VAULT v0.1.11 running on Linux Mint](docs/images/one-time-vault-v0.1.11.png)
+
+*ONE-TIME VAULT v0.1.11 — the offline encryption interface running on Linux Mint. Interface language shown: Japanese.*
+
 ## The idea
 
 Your encrypted files stay on your computer. Your keys stay on your USB.
