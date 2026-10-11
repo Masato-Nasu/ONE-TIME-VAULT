@@ -8,13 +8,22 @@ ONE-TIME VAULT is an experimental, offline desktop application that encrypts fil
 
 [Project website](https://masato-nasu.github.io/ONE-TIME-VAULT/) · [MASATO LAB](https://masato-lab.pages.dev/)
 
-> **Status: v0.1.11 public preview.** Linux Mint has been used for hands-on testing. Windows and macOS Python launchers exist, but these platforms are not yet verified in real-world use. This is not an audited cryptographic product.
+> **Status: v0.1.12 bilingual public preview.** Linux Mint has been used for hands-on testing. Windows and macOS Python launchers exist, but these platforms are not yet verified in real-world use. This is not an audited cryptographic product.
 
 ## Application screenshot
 
 ![ONE-TIME VAULT v0.1.11 running on Linux Mint](docs/images/one-time-vault-v0.1.11.png)
 
 *ONE-TIME VAULT v0.1.11 — the offline encryption interface running on Linux Mint. Interface language shown: Japanese.*
+
+
+## Japanese / English interface (v0.1.12)
+
+The application now has an **in-app 日本語 / EN language switch** at the top right. The chosen language is remembered between launches. Buttons, file/folder prompts, USB refresh messages, progress reporting, success/error dialogs, and system-tray menu items are localized.
+
+The ciphertext and key formats are unchanged from v0.1.11; existing `.otv` and `.otk` files continue to work. The Japanese desktop output folders (`暗号化` and `復号`) are deliberately preserved for compatibility, even in the English UI.
+
+**Linux Mint update:** Close the previous running instance completely, extract the v0.1.12 application package, then run `./install-desktop.sh` from the extracted `ONE-TIME-VAULT-DESKTOP` directory. No encryption keys or data need to be moved.
 
 ## The idea
 
@@ -103,7 +112,7 @@ Run tests from the project source directory:
 python3 -m unittest discover -s tests -v
 ```
 
-The project is written in Python and Tkinter. Version **0.1.11** adds Linux Mint desktop integration and system tray behavior without changing the existing encryption format.
+The project is written in Python and Tkinter. Version **0.1.12** adds a persistent Japanese/English interface without changing the cryptographic format. Version 0.1.11 added Linux Mint desktop integration.
 
 ## Project links
 
