@@ -25,7 +25,7 @@ There is no runnable web version of ONE-TIME VAULT: the project website introduc
 
 **English interface · v0.1.12 (Linux Mint)**
 
-![ONE-TIME VAULT v0.1.12 English interface showing Encrypt, Decrypt, file/folder selection and language switch](docs/images/one-time-vault-v0.1.12-en.png)
+![ONE-TIME VAULT v0.1.12 English interface showing Encrypt, Decrypt, file/folder selection and language switch](docs/images/one-time-vault-v0.1.12-english.png)
 
 **Japanese interface · v0.1.11 (Linux Mint)**
 
