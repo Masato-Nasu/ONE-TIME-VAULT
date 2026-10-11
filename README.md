@@ -6,7 +6,7 @@ ONE-TIME VAULT is an experimental, offline desktop application that encrypts fil
 
 **Created by Masato Nasu — MASATO LAB.**
 
-[Project website](https://masato-nasu.github.io/ONE-TIME-VAULT/) · [MASATO LAB](https://masato-lab.pages.dev/)
+[Project website](https://masato-lab.pages.dev/tools/one-time-vault) · [MASATO LAB](https://masato-lab.pages.dev/)
 
 > **Status: v0.1.12 bilingual public preview.** Linux Mint has been used for hands-on testing. Windows and macOS Python launchers exist, but these platforms are not yet verified in real-world use. This is not an audited cryptographic product.
 
@@ -19,7 +19,7 @@ The downloadable application package is `ONE-TIME-VAULT-DESKTOP-v0.1.12.zip` (Py
 The ZIP file has SHA-256:
 `b2b6f43fe18b60693bd2b5b3c70bdf42b2fac838479c29651228ffa542d620bc`.
 
-There is no runnable web app: GitHub Pages is an information website. ONE-TIME VAULT runs locally on your computer.
+There is no runnable web version of ONE-TIME VAULT: the project website introduces the desktop application. The app itself runs locally on your computer.
 
 ## Application screenshots
 
@@ -133,7 +133,7 @@ The project is written in Python and Tkinter. Version **0.1.12** adds a persiste
 
 ## Project links
 
-- [ONE-TIME VAULT website](https://masato-nasu.github.io/ONE-TIME-VAULT/)
+- [ONE-TIME VAULT website](https://masato-lab.pages.dev/tools/one-time-vault)
 - [MASATO LAB](https://masato-lab.pages.dev/)
 
 ---
