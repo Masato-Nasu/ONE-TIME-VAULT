@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101518">
+  <meta name="description" content="ONE-TIME VAULT: An experimental offline desktop encryption app. Your encrypted files stay on your computer. Your keys stay on a USB.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ONE-TIME VAULT — One file. One key. Two locations.">
+  <meta property="og:description" content="Offline file and folder encryption with physically separated USB keys. By MASATO LAB.">
+  <title>ONE-TIME VAULT — Offline Encryption by MASATO LAB</title>
+  <style>
+  :root{--ink:#142028;--muted:#64727c;--line:#d9e1e5;--bg:#f7f8f6;--panel:#fff;--accent:#bdf269;--dark:#101719}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}a:focus-visible,button:focus-visible{outline:3px solid #619925;outline-offset:4px}
+  .wrap{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+  .eyebrow{font:600 11px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase}
+  header{border-bottom:1px solid var(--line);background:rgba(247,248,246,.93)}
+  header .wrap{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;letter-spacing:-.03em;font-weight:850;font-size:16px}
+  .brand-icon{display:grid;place-items:center;width:40px;height:40px;background:#161e21;border-radius:11px}
+  .brand-icon svg{width:29px;height:29px}
+  nav{display:flex;align-items:center;gap:30px;font-size:13px;font-weight:650}nav a{text-decoration:none}nav a:hover{text-decoration:underline}
+  .nav-git{border:1px solid var(--ink);padding:9px 15px;border-radius:5px}
+  .hero{padding:105px 0 100px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:70px}
+  .hero h1{font-size:clamp(56px,7.5vw,108px);font-weight:850;line-height:.96;letter-spacing:-.084em;margin:18px 0 30px}
+  .hero h1 span{display:block}
+  .hero h1 .light{font-weight:450}
+  .intro{max-width:560px;font-size:clamp(17px,1.7vw,21px);line-height:1.6;color:#4c5b64;margin-bottom:30px}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin:35px 0 30px}
+  .btn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-size:14px;font-weight:750;padding:14px 20px;border-radius:5px;border:1px solid var(--ink);transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.dark{background:var(--dark);color:white}.btn.light{background:transparent;color:var(--ink)}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:12px 22px;color:var(--muted);font-size:12px}
+  .hero-meta span:before{content:"●";font-size:8px;color:#70a33a;margin-right:7px}
+  .visual{background:#172225;min-height:488px;border:1px solid #273033;border-radius:16px;padding:35px;position:relative;display:flex;flex-direction:column;justify-content:center;box-shadow:0 26px 70px rgba(16,25,30,.13)}
+  .visual:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:32px 32px;opacity:.28;border-radius:16px;pointer-events:none}
+  .illustration-label{position:relative;color:#9fb0b0;font-size:10px;letter-spacing:.18em;font-weight:700;text-transform:uppercase}
+  .device{position:relative;padding:20px 22px;border:1px solid #536366;border-radius:8px;background:#273539;display:flex;gap:16px;align-items:center}
+  .device:first-of-type{margin-top:16px}.device svg{flex:none;width:31px;height:31px}
+  .device strong{display:block;color:#f7f8f6;font-size:15px}.device small{color:#a4b4b4;font-family:ui-monospace,Consolas,monospace;font-size:11px}
+  .device.usb{border-color:#bdf269;background:#293a2a}.device.usb strong{color:#d7fab7}
+  .bridge{position:relative;display:flex;align-items:center;justify-content:center;height:112px}
+  .bridge:before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px dashed #9ab66f}
+  .bridge span{z-index:1;display:inline-block;background:#bdf269;color:#192514;padding:8px 12px;border-radius:3px;font:700 11px/1.1 ui-monospace,Consolas,monospace;letter-spacing:.07em}
+  .visual-note{position:relative;margin-top:22px;color:#b2bfc0;font-size:12px;max-width:350px}
+  .section{padding:85px 0;border-top:1px solid var(--line)}
+  h2{letter-spacing:-.06em;line-height:1.13;font-size:clamp(36px,4vw,56px);margin:17px 0 20px}
+  .section-lead{color:#586874;max-width:600px;font-size:16px;margin:0}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px}
+  .step{padding:30px 28px 34px;border:1px solid var(--line);background:#fff;border-radius:8px;min-height:232px}
+  .step .num{font:600 12px ui-monospace,monospace;color:#69863a}
+  .step h3{font-size:21px;letter-spacing:-.035em;margin:26px 0 10px}.step p{color:var(--muted);font-size:14px;margin:0}
+  .features{display:grid;grid-template-columns:repeat(2,1fr);column-gap:60px;margin-top:32px}
+  .feat{border-bottom:1px solid var(--line);padding:23px 0}.feat h3{font-size:18px;letter-spacing:-.03em;margin:0 0 6px}
+  .feat p{font-size:14px;margin:0;color:var(--muted)}
+  .code{background:#162124;border-radius:9px;padding:25px;color:#e2efe2;font:13px/1.85 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-x:auto;white-space:pre;margin-top:26px}
+  .code .comment{color:#b2c0b5}.code .accent{color:#bdf269}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .notes{font-size:14px;color:var(--muted)}.notes strong{color:var(--ink)}
+  .tiny{font-size:12px;color:#6a7a84}
+  .badge{display:inline-block;padding:5px 9px;background:#e7efdb;border-radius:3px;font:600 10px ui-monospace,monospace;letter-spacing:.07em;color:#41621e}
+  footer{background:#111b1e;color:#d4dfdc;padding:58px 0 42px}
+  footer .row{display:flex;justify-content:space-between;gap:30px;align-items:end}
+  footer h2{margin:0 0 9px;font-size:34px;letter-spacing:-.06em;color:white}footer p{color:#93a6a8;font-size:13px}
+  footer a{color:#d4dfdc;text-decoration:none}footer a:hover{text-decoration:underline}
+  .footer-nav{display:flex;gap:24px;font-size:13px}
+  @media(max-width:850px){.hero{padding:65px 0}.hero-grid{grid-template-columns:1fr;gap:38px}.visual{min-height:400px}.steps{grid-template-columns:1fr}.step{min-height:auto}.two-col{grid-template-columns:1fr;gap:32px}}
+  @media(max-width:600px){.wrap{width:min(100% - 32px,1160px)}header .wrap{height:66px}.brand{font-size:14px}nav{gap:12px}nav a:not(.nav-git){display:none}.hero h1{font-size:clamp(60px,13vw,82px)}.hero{padding:60px 0 65px}.visual{padding:20px;min-height:360px}.device{padding:16px}.section{padding:56px 0}.features{grid-template-columns:1fr}.step{padding:25px}footer .row{display:block}.footer-nav{margin-top:25px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="ONE-TIME VAULT home">
+        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M12 18v-6a8 8 0 0 1 16 0v6" stroke="#eff4ee" stroke-width="3.2" stroke-linecap="round"/><rect x="9" y="17" width="22" height="18" rx="4" fill="#eef2ee"/><path d="M17 29v-5m6 5v-5" stroke="#172225" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+        ONE-TIME VAULT
+      </a>
+      <nav aria-label="Site navigation">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a class="nav-git" href="https://github.com/Masato-Nasu/ONE-TIME-VAULT" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">MASATO LAB / Experimental Software / 001</div>
+          <h1><span>ONE-TIME</span><span class="light">VAULT.</span></h1>
+          <p class="intro">Your encrypted files stay on your computer.<br>Your keys stay on your USB.</p>
+          <p class="section-lead">A deliberately simple, offline desktop application built around the physical separation of data and key.</p>
+          <div class="cta">
+            <a class="btn dark" href="https://github.com/Masato-Nasu/ONE-TIME-VAULT">View on GitHub <span aria-hidden="true">↗</span></a>
+            <a class="btn light" href="#how">Explore the idea <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-meta">
+            <span>Offline-first</span><span>File &amp; folder encryption</span><span>v0.1.11 preview</span>
+          </div>
+        </div>
+        <div class="visual" role="img" aria-label="Diagram: An encrypted file stays on your desktop, while its separate matching key is stored on a USB drive.">
+          <div class="illustration-label">01 / Computer</div>
+          <div class="device">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="25" height="20" rx="2" stroke="#e6f0ec" stroke-width="2"/><path d="M11 29h10m-5-4v4" stroke="#e6f0ec" stroke-width="2" stroke-linecap="round"/><path d="M11 13h10m-10 5h7" stroke="#bdf269" stroke-width="2" stroke-linecap="round"/></svg>
+            <div><strong>Encrypted data</strong><small>Desktop / encrypted-file.otv</small></div>
+          </div>
+          <div class="bridge"><span>KEY SEPARATION</span></div>
+          <div class="illustration-label">02 / Removable device</div>
+          <div class="device usb">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="10" y="12" width="12" height="18" rx="3" stroke="#c8fc9d" stroke-width="2"/><path d="M12 12V3h8v9M15 3v4m2-4v4" stroke="#c8fc9d" stroke-width="2" stroke-linejoin="round"/></svg>
+            <div><strong>Matching key</strong><small>USB / random-name.otk</small></div>
+          </div>
+          <div class="visual-note">The app locates the right key by internal identity, even if both filenames have been changed.</div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="eyebrow">01 / The workflow</div>
+        <h2>Encryption without the ceremony.</h2>
+        <p class="section-lead">No cloud account. No password form. Select, encrypt, and physically separate.</p>
+        <div class="steps">
+          <div class="step"><div class="num">STEP 01</div><h3>Choose your data.</h3><p>Select one file or an entire folder, including nested folders.</p></div>
+          <div class="step"><div class="num">STEP 02</div><h3>Encrypt it locally.</h3><p>The app generates fresh key material and encrypts the contents without uploading them.</p></div>
+          <div class="step"><div class="num">STEP 03</div><h3>Keep the key apart.</h3><p>The encrypted file stays on the desktop. Its matching key goes to the USB.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="features">
+      <div class="wrap two-col">
+        <div><div class="eyebrow">02 / Designed to disappear</div><h2>Complex inside.<br>Simple outside.</h2><p class="section-lead">The interface handles key matching and file management, so you can focus on what you want to protect.</p></div>
+        <div class="features">
+          <div class="feat"><h3>Automatic key discovery</h3><p>Finds the matching key on USB, without relying on its filename.</p></div>
+          <div class="feat"><h3>Rename-friendly</h3><p>Encrypted files and key files can be renamed independently.</p></div>
+          <div class="feat"><h3>Folder support</h3><p>Preserves the regular file hierarchy and empty folders.</p></div>
+          <div class="feat"><h3>Local processing</h3><p>No file content or key material is sent to a server.</p></div>
+          <div class="feat"><h3>Linux Mint desktop app</h3><p>App menu shortcut, dedicated icon, optional system tray, and login autostart.</p></div>
+          <div class="feat"><h3>Streams large files</h3><p>Chunked processing; performance depends on USB and disk speed.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="install">
+      <div class="wrap two-col">
+        <div>
+          <div class="eyebrow">03 / Get started</div>
+          <h2>Desktop first.</h2>
+          <p class="section-lead">The tested desktop workflow currently targets Linux Mint. Python launch scripts for Windows and macOS are included in the project, but have not been verified on those systems.</p>
+          <div style="margin-top:22px"><span class="badge">LINUX MINT · v0.1.11</span></div>
+          <div class="cta"><a class="btn dark" href="https://github.com/Masato-Nasu/ONE-TIME-VAULT#install-on-linux-mint">Read installation guide ↗</a></div>
+        </div>
+        <div>
+          <div class="eyebrow">Run after extracting the desktop application</div>
+          <div class="code"><span class="comment"># Requirements: Python 3 + Tkinter + venv</span>
+<span class="accent">cd</span> "$(xdg-user-dir DOWNLOAD)/ONE-TIME-VAULT-DESKTOP"
+<span class="accent">./install-desktop.sh</span></div>
+          <p class="notes">Installed for your current user. The app registers a menu entry and login autostart. The icon/tray dependencies are downloaded during the first installation.</p>
+          <p class="tiny">Never remove the USB drive before a write has fully finished.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap two-col">
+        <div>
+          <div class="eyebrow">04 / Under the hood</div><h2>Inspired by the<br>one-time pad.</h2>
+          <p class="section-lead">Fresh OS-generated random key material, byte-wise XOR encryption, and HMAC-SHA256 authentication.</p>
+        </div>
+        <div class="notes">
+          <p><strong>This is experimental cryptography, not an audited security product.</strong> A computer-generated keystream does not establish the mathematical perfect-secrecy guarantee of a strict one-time pad. The key occupies roughly as much space as the encrypted payload.</p>
+          <p><strong>Keys must be backed up securely.</strong> If the USB is lost or fails and there is no backup, your encrypted files cannot be restored.</p>
+          <p><strong>File names may be visible.</strong> Encrypted filenames normally retain the original name, though they can be changed. Symlinks and certain special entries are excluded from folder archives.</p>
+          <p><a href="https://github.com/Masato-Nasu/ONE-TIME-VAULT#how-encryption-works">Read the technical notes ↗</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap row">
+      <div><div class="eyebrow">Made by MASATO LAB</div><h2>ONE-TIME VAULT.</h2><p>One file. One key. Two locations. © 2026 Masato Nasu.</p></div>
+      <div class="footer-nav"><a href="https://github.com/Masato-Nasu/ONE-TIME-VAULT">GitHub ↗</a><a href="https://masato-lab.pages.dev/">MASATO LAB ↗</a><a href="#top">Back to top ↑</a></div>
+    </div>
+  </footer>
+</body>
+</html>
